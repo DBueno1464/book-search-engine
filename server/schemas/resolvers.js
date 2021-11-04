@@ -22,5 +22,5 @@ const resolvers = {
 //         title:
 //         removeBook:
 //     }
-// }
+}
 module.exports = resolvers;
