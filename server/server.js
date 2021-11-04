@@ -15,6 +15,7 @@ const PORT = process.env.PORT || 3001;
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+  context
 });
 
 // apply express middleware with our apolloserver
