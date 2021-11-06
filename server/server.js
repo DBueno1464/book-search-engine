@@ -1,5 +1,6 @@
 const express = require("express");
 const path = require("path");
+const { authMiddleware } = require('./utils/auth');
 // require apolloserver
 const { ApolloServer } = require("apollo-server-express");
 const db = require("./config/connection");
@@ -14,7 +15,8 @@ const PORT = process.env.PORT || 3001;
 // new instance of apolloserver with typedefs and resolvers
 const server = new ApolloServer({
   typeDefs,
-  resolvers
+  resolvers,
+  context: authMiddleware,
 });
 
 // apply express middleware with our apolloserver
