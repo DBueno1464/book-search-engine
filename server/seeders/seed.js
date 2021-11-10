@@ -1,7 +1,6 @@
 const db = require("../config/connection");
-const { User, bookSchema } = require("../models");
+const { User } = require("../models");
 const userSeeds = require("./userSeeds.json");
-const bookSeeds = require("./bookSeeds.json");
 
 db.once("open", async () => {
   try {
