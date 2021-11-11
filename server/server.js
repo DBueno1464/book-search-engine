@@ -4,7 +4,6 @@ const { authMiddleware } = require('./utils/auth');
 // require apolloserver
 const { ApolloServer } = require("apollo-server-express");
 const db = require("./config/connection");
-// const routes = require('./routes');
 
 // require the schema files, this will replace our 'routes' folder
 const { typeDefs, resolvers } = require("./schemas");

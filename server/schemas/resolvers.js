@@ -46,13 +46,16 @@ const resolvers = {
     },
 
     saveBook: async (parent, args, context) => {
+      console.log(args);
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { savedBooks: args.input } },
+          { $push: { savedBooks: args.input } },
           { new: true }
         )
         return updatedUser;
+      } else {
+        console.error("no user in context");
       }
     },
 
