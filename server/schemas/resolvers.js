@@ -11,8 +11,12 @@ const resolvers = {
 
     me: async (parent, args, context) => {
       if (context.user) {
-        return User.findOne({ _id: context.user._id });
+        const userData = await User.findOne({})
+        .select('-__v -password')
+        .populate('books')
+        return userData;
       }
+      console.log("context.user is undefinded");
       throw new AuthenticationError("You need to be logged in!");
     },
     
@@ -41,12 +45,14 @@ const resolvers = {
       }
 
       const token = signToken(user);
+      // console.log(token, "in resolvers");
+      // console.log(user, "in resolvers");
 
       return { token, user };
     },
 
     saveBook: async (parent, args, context) => {
-      console.log(args);
+      // console.log(context.user, 1);
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },

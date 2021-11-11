@@ -9,12 +9,15 @@ module.exports = {
   authMiddleware: function ({ req }) {
     // allows token to be sent via  req.query or headers
     let token = req.body.token || req.query.token || req.headers.authorization;
-
+    console.log(token, 0)
+    console.log(req.body.token, "1");
+    console.log(req.query.token, "2");
+    console.log(req.headers.authorization, "3");
     // ["Bearer", "<tokenvalue>"]
     if (req.headers.authorization) {
+      console.log("req.headers.authorization exists");
       token = token.split(' ').pop().trim();
     }
-
     if (!token) {
       console.log("no token found");
       return req;
@@ -22,19 +25,21 @@ module.exports = {
 
     // verify token and get user data out of it
     try {
+      // console.log(token, "in verify");
       const { data } = jwt.verify(token, secret, { maxAge: expiration });
       req.user = data;
     } catch {
       console.log('Invalid token');
-      return res.status(400).json({ message: 'invalid token!' });
+      // return res.status(400).json({ message: 'invalid token!' });
     }
 
     // send to next endpoint
-    next();
+    // next();
+    return req;
   },
   signToken: function ({ username, email, _id }) {
     const payload = { username, email, _id };
-
+    // console.log(jwt.sign({ data: payload }, secret, { expiresIn: expiration }));
     return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
   },
 };
