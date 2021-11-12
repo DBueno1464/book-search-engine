@@ -15,7 +15,7 @@ module.exports = {
     // console.log(req.headers.authorization, "3");
     // ["Bearer", "<tokenvalue>"]
     if (req.headers.authorization) {
-      console.log("req.headers.authorization exists");
+      // console.log("req.headers.authorization exists");
       token = token.split(' ').pop().trim();
     }
     if (!token) {

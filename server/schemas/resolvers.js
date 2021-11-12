@@ -67,6 +67,7 @@ const resolvers = {
     },
 
     removeBook: async (parent, args, context) => {
+      console.log(context.user);
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
@@ -74,6 +75,8 @@ const resolvers = {
           { new: true }
         )
         return updatedUser;
+      } else {
+        console.error("Couldn't remove book!");
       }
     }
   },
