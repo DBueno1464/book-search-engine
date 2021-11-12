@@ -10,11 +10,6 @@ import Auth from '../utils/auth';
 import { removeBookId } from '../utils/localStorage';
 
 const SavedBooks = () => {
-  // const [userData, setUserData] = useState({});
-
-  // use this to determine if `useEffect()` hook needs to run again
-  
-
   // try ', onCompleted: setUserData' after GET_ME
   const { loading, data } = useQuery(GET_ME);
   const userData = data?.me || [];
@@ -41,6 +36,23 @@ const SavedBooks = () => {
       console.error(err);
     }
   };
+
+  if (loading) {
+    return (
+      <>
+        <Jumbotron fluid className='text-light bg-dark'>
+          <Container>
+            <h1>Viewing saved books!</h1>
+          </Container>
+        </Jumbotron>
+        <Container>
+          <h2>
+            Loading...
+          </h2>
+        </Container>
+      </>
+    );
+  }
 
   return (
     <>
