@@ -1,7 +1,7 @@
 const express = require("express");
 // require apolloserver
-const { ApolloServer } = require("apollo-server-express");
 const path = require("path");
+const { ApolloServer } = require("apollo-server-express");
 
 // require the schema files, this will replace our 'routes' folder
 const { typeDefs, resolvers } = require("./schemas");
