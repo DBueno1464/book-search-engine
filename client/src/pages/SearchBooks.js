@@ -35,11 +35,14 @@ const SearchBooks = () => {
     try {
       const response = await searchGoogleBooks(searchInput);
 
+      console.log(response.json());
+
       if (!response.ok) {
         throw new Error('something went wrong!');
       }
 
       const { items } = await response.json();
+
 
       const bookData = items.map((book) => ({
         bookId: book.id,

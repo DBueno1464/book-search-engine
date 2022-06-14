@@ -42,3 +42,11 @@
   GitHub: [https://github.com/DBueno1464](https://github.com/DBueno1464/book-search-engine) 
 
   Heroku: [Book Search Engine](https://salty-earth-23791.herokuapp.com/)
+
+  ## Screenshots
+
+  ![Search Books](/Assets/21-mern-homework-demo-01.gif)
+
+  ![Save Books](/Assets/21-mern-homework-demo-02.gif)
+
+  ![Delete Books](/Assets/21-mern-homework-demo-03.gif)
