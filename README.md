@@ -33,7 +33,7 @@
 
   and you should see both the React front end and graphql back end running after a few seconds. 
   ## Usage
-  We first signup/login, then we search for books to add to our savedbooks. After doing so, you can go to 'See Your Books' in the navbar and see all the books you saved, you ca also remove whatever book you want.
+  We first signup/login, then we search for books to add to our saved books. After doing so, you can go to 'See Your Books' in the navbar and see all the books you have saved. You can also delete any book in your saved books tab.
   
   ## Links:
   
